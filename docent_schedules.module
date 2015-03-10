@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Docent Schedules feature.
+ */
+
+include_once 'docent_schedules.features.inc';
