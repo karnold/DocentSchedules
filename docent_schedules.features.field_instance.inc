@@ -22,7 +22,7 @@ function docent_schedules_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -79,7 +79,7 @@ function docent_schedules_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_assigned_docent',
-    'label' => 'Assigned Docent',
+    'label' => 'Assigned Docents',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -104,7 +104,7 @@ function docent_schedules_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -114,7 +114,7 @@ function docent_schedules_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -163,7 +163,7 @@ function docent_schedules_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -172,7 +172,7 @@ function docent_schedules_field_default_field_instances() {
           'thousand_separator' => ' ',
         ),
         'type' => 'number_integer',
-        'weight' => 3,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -203,7 +203,7 @@ function docent_schedules_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Assigned Docent');
+  t('Assigned Docents');
   t('Body');
   t('Date');
   t('Number of People Attending');

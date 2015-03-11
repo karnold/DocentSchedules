@@ -5,3 +5,10 @@
  */
 
 include_once 'docent_schedules.features.inc';
+
+function docent_schedules_views_pre_build(&$view) {
+    if ($view->name == 'docent_tours') {
+        global $user;
+        $view->display['page_2']->handler->handlers['filter']['field_assigned_docent_target_id']->value['value'] = $user->uid;
+    }
+}
