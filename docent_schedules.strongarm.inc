@@ -49,7 +49,7 @@ function docent_schedules_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '10',
         ),
       ),
       'display' => array(),

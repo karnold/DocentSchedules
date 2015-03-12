@@ -335,7 +335,7 @@ function docent_schedules_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Upcoming Docent Tours';
+  $handler->display->display_options['title'] = 'My Upcoming Tours';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -356,6 +356,13 @@ function docent_schedules_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'You currently have no tours scheduled';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -425,6 +432,28 @@ function docent_schedules_views_default_views() {
   $handler->display->display_options['filters']['field_assigned_docent_target_id']['table'] = 'field_data_field_assigned_docent';
   $handler->display->display_options['filters']['field_assigned_docent_target_id']['field'] = 'field_assigned_docent_target_id';
   $handler->display->display_options['path'] = 'my-tours';
+
+  /* Display: My Upcoming Tours Pane */
+  $handler = $view->new_display('panel_pane', 'My Upcoming Tours Pane', 'panel_pane_2');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Date (field_date) */
+  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Assigned Docents (field_assigned_docent) */
+  $handler->display->display_options['filters']['field_assigned_docent_target_id']['id'] = 'field_assigned_docent_target_id';
+  $handler->display->display_options['filters']['field_assigned_docent_target_id']['table'] = 'field_data_field_assigned_docent';
+  $handler->display->display_options['filters']['field_assigned_docent_target_id']['field'] = 'field_assigned_docent_target_id';
   $export['docent_tours'] = $view;
 
   return $export;
