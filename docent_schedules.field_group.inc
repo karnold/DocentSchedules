@@ -21,18 +21,18 @@ function docent_schedules_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Primary Contact',
-    'weight' => '6',
+    'weight' => '8',
     'children' => array(
       0 => 'field_contact_email',
       1 => 'field_contact_phone_',
       2 => 'field_contact_name',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'formatter' => 'closed',
       'instance_settings' => array(
         'description' => '',
-        'classes' => 'group-primary-contact field-group-fieldset',
+        'classes' => '',
         'required_fields' => 1,
       ),
     ),
@@ -50,21 +50,20 @@ function docent_schedules_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Secondary Contact',
-    'weight' => '7',
+    'weight' => '9',
     'children' => array(
       0 => 'field_contact_name_2',
       1 => 'field_contact_email_2',
       2 => 'field_contact_phone_2',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Secondary Contact',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'required_fields' => 1,
-        'classes' => 'group-secondary-contact field-group-fieldset',
         'description' => '',
+        'classes' => '',
+        'required_fields' => 1,
       ),
-      'formatter' => 'collapsed',
     ),
   );
   $export['group_secondary_contact|node|tour|form'] = $field_group;

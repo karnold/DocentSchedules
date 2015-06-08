@@ -76,7 +76,7 @@ function docent_schedules_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_tour';
   $strongarm->value = array(
-    0 => 'promote',
+    0 => 'status',
   );
   $export['node_options_tour'] = $strongarm;
 
