@@ -6,8 +6,14 @@
 
 include_once 'docent_schedules.features.inc';
 
+function docent_schedules_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'tour_node_form') {
+        $form['options']['promote']['#type'] = 'hidden';
+        $form['options']['sticky']['#title'] = t('Need more docents to volunteer');
+    }
+}
+
 function docent_schedules_views_pre_build(&$view) {
-    dpm($view->display);
     if ($view->name == 'docent_tours') {
         global $user;
         $view->display['page_2']->handler->handlers['filter']['field_assigned_docent_target_id']->value['value'] = $user->uid;
