@@ -559,6 +559,40 @@ function docent_schedules_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_phone_number'
+  $field_instances['user-user-field_phone_number'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_phone_number',
+    'label' => 'Phone Number',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Assigned Docents');
@@ -570,6 +604,7 @@ function docent_schedules_field_default_field_instances() {
   t('Name of School');
   t('Notes and Special Requests');
   t('Number of People Attending');
+  t('Phone Number');
   t('Type');
 
   return $field_instances;

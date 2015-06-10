@@ -276,6 +276,27 @@ function docent_schedules_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_phone_number'
+  $field_bases['field_phone_number'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_phone_number',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_type'
   $field_bases['field_type'] = array(
     'active' => 1,
