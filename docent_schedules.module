@@ -6,6 +6,18 @@
 
 include_once 'docent_schedules.features.inc';
 
+function docent_schedules_menu() {
+    $items['ajax/docent-volunteer/%node'] = array(
+        'title'             => 'Ajax callback for volunteer',
+        'page callback'     => 'docent_tours_ajax_volunteer',
+        'page arguments'    => array(2),
+        'access arguments'  => array('access content'),
+        'type'              => MENU_CALLBACK,
+    );
+
+    return $items;
+}
+
 function docent_schedules_form_alter(&$form, &$form_state, $form_id) {
     if ($form_id == 'tour_node_form') {
         $form['options']['promote']['#type'] = 'hidden';
@@ -20,3 +32,16 @@ function docent_schedules_views_pre_build(&$view) {
         $view->display['panel_pane_2']->handler->handlers['filter']['field_assigned_docent_target_id']->value['value'] = $user->uid;
     }
 }
+
+function docent_tours_ajax_volunteer($node)
+{
+    global $user;
+
+    $node->field_assigned_docent['und'][]['target_id'] = $user->uid;
+    node_save($node);
+
+    $commands[] = ajax_command_replace('.ajax-link-' . $node->nid, 'Volunteered');
+    $commands[] = ajax_command_alert('Congratulations, you have volunteered for the tour');
+
+    ajax_deliver(array('#type' => 'ajax', '#commands' => $commands));
+}   
