@@ -14,7 +14,7 @@ function docent_schedules_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_clean_long';
-  $strongarm->value = 'M jS, Y @ g:ia';
+  $strongarm->value = 'Y-m-d H:i';
   $export['date_format_clean_long'] = $strongarm;
 
   $strongarm = new stdClass();

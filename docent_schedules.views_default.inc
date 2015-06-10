@@ -375,12 +375,17 @@ function docent_schedules_views_default_views() {
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['settings'] = array(
-    'format_type' => 'clean_long',
+    'format_type' => 'medium',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
   );
+  /* Field: Content: Type */
+  $handler->display->display_options['fields']['field_type']['id'] = 'field_type';
+  $handler->display->display_options['fields']['field_type']['table'] = 'field_data_field_type';
+  $handler->display->display_options['fields']['field_type']['field'] = 'field_type';
+  $handler->display->display_options['fields']['field_type']['type'] = 'taxonomy_term_reference_plain';
   /* Sort criterion: Content: Date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
