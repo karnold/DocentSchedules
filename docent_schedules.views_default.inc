@@ -639,11 +639,35 @@ function docent_schedules_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'tour' => 'tour',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Type (field_type) */
+  $handler->display->display_options['filters']['field_type_tid']['id'] = 'field_type_tid';
+  $handler->display->display_options['filters']['field_type_tid']['table'] = 'field_data_field_type';
+  $handler->display->display_options['filters']['field_type_tid']['field'] = 'field_type_tid';
+  $handler->display->display_options['filters']['field_type_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_type_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_type_tid']['expose']['operator_id'] = 'field_type_tid_op';
+  $handler->display->display_options['filters']['field_type_tid']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['field_type_tid']['expose']['operator'] = 'field_type_tid_op';
+  $handler->display->display_options['filters']['field_type_tid']['expose']['identifier'] = 'field_type_tid';
+  $handler->display->display_options['filters']['field_type_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    11 => 0,
+    15 => 0,
+    21 => 0,
+    23 => 0,
+  );
+  $handler->display->display_options['filters']['field_type_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_type_tid']['vocabulary'] = 'tour_type';
+  $handler->display->display_options['filters']['field_type_tid']['hierarchy'] = 1;
   /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_date_value']['group'] = 1;
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'From Date';
@@ -664,6 +688,7 @@ function docent_schedules_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value_1']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_date_value_1']['group'] = 1;
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'To Date';
